@@ -3,7 +3,7 @@ import BookImage from '../BookImage';
 import './style.css';
 
 
-function ResultListItem(props) {
+function ResultListItems(props) {
     console.log('list item props', props);
     return (
         <>
@@ -48,4 +48,4 @@ function ResultListItem(props) {
     )
 }
 
-export default ResultListItem;
+export default ResultListItems;

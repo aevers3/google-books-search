@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import ResultsListItem from '../ResultsListItem';
+import ResultsListItems from '../ResultsListItems';
 
 function ResultsList(props) {
     
@@ -9,7 +9,7 @@ function ResultsList(props) {
         ?
         <div className='container'>
             <ul className='results-list'>
-                <ResultsListItem
+                <ResultsListItems
                     results={props.results}
                     handleSaveBook={props.handleSaveBook}
                 />
