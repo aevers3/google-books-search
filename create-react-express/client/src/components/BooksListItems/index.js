@@ -18,12 +18,17 @@ function BooksListItems(props) {
                         <div className='col-sm-9'>
                             <p>{book.description}</p>
                             <div className='row'>
-                                <p className='col-12 d-flex justify-content-center'>
-                                    <a href={book.link} target='_blank'>More Info</a>
+                                <p className='col-6 d-flex justify-content-center'>
+                                    <a href={book.link} target='_blank' className='info-btn text-center'>More Info</a>
+                                </p>
+                                <p className='col-6 d-flex justify-content-center'>
+                                    <button onClick={() => { props.handleDeleteBook(book._id) }}
+                                        className='info-btn'>Remove from Saved</button>
                                 </p>
                                 {/* <p className='col-6 d-flex justify-content-center'>
                                     <a href={book.preview} target='_blank'>Preview</a>
                                 </p> */}
+
                             </div>
                         </div>
                     </div>

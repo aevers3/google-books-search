@@ -9,6 +9,10 @@ class SavedBooksWrapper extends React.Component {
         books: []
     };
 
+    handleDeleteBook = (id) => {
+        API.deleteBook(id);
+    }
+
     componentDidMount() {
         this.loadBooks();
       }
@@ -30,6 +34,7 @@ class SavedBooksWrapper extends React.Component {
                 />
                 <BooksList 
                     books={this.state.books}
+                    handleDeleteBook={this.handleDeleteBook}
                 />
             </div>
         )

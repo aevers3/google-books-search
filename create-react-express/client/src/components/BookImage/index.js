@@ -4,6 +4,7 @@ function BookImage(props) {
     console.log(props.bookInfo)
     if (props.bookInfo.imageLinks) {
         return (
+            
             <img 
                 src={props.bookInfo.imageLinks.thumbnail} 
                 alt={props.bookInfo.title}
