@@ -10,29 +10,30 @@ class SavedBooksWrapper extends React.Component {
     };
 
     handleDeleteBook = (id) => {
-        API.deleteBook(id);
+        API.deleteBook(id)
+            .then(res => this.loadBooks())
     }
 
     componentDidMount() {
         this.loadBooks();
-      }
-    
-      loadBooks = () => {
+    }
+
+    loadBooks = () => {
         API.getBooks()
-          .then(res => {
-              console.log(res.data);
-              this.setState({ books: res.data})
+            .then(res => {
+                console.log('res', res.data);
+                this.setState({ books: res.data })
             })
-          .catch(err => console.log(err));
-      };
+            .catch(err => console.log(err));
+    };
 
     render() {
         return (
             <div>
-                <Banner 
+                <Banner
                     page='saved'
                 />
-                <BooksList 
+                <BooksList
                     books={this.state.books}
                     handleDeleteBook={this.handleDeleteBook}
                 />
