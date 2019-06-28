@@ -6,7 +6,7 @@ import SavedBooksWrapper from '../../components/SavedBooksWrapper';
 function Saved() {
     return (
         <>
-            <Banner />
+            {/* <Banner /> */}
             <SavedBooksWrapper />
         </>
     )

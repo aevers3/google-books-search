@@ -1,7 +1,6 @@
 import React from 'react';
-import SearchHeader from '../SearchHeader';
-import SearchForm from '../SearchForm';
 import ResultsList from '../ResultsList';
+import Banner from '../Banner';
 import API from '../../utils/API';
 
 
@@ -17,6 +16,16 @@ class SearchWrapper extends React.Component {
             // .then(res => console.log(res.data.items[0].volumeInfo))
             .catch(err => console.log(err));
     };
+
+    handleSaveBook = (event, ind) => {
+        event.preventDefault();
+        console.log(this.state)
+        const newBook = Object.assign({}, this.state.results[ind].volumeInfo);
+        newBook.authors = newBook.authors.reduce((prev, cur, ind) => cur + prev, '');
+        newBook.link = newBook.infoLink;
+        newBook.image = newBook.imageLinks.thumbnail;
+        API.saveBook(newBook);
+    }
 
     handleInputChange = event => {
         const name = event.target.name;
@@ -35,13 +44,21 @@ class SearchWrapper extends React.Component {
     render() {
         return (
             <>
-                <SearchHeader />
-                <SearchForm
+                <Banner 
                     search={this.state.search}
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}
                 />
-                <ResultsList results={this.state.results} />
+                {/* <SearchHeader />
+                <SearchForm
+                    search={this.state.search}
+                    handleFormSubmit={this.handleFormSubmit}
+                    handleInputChange={this.handleInputChange}
+                /> */}
+                <ResultsList
+                    results={this.state.results}
+                    handleSaveBook={this.handleSaveBook}
+                />
             </>
         )
     }

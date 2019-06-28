@@ -1,0 +1,15 @@
+.banner {
+    height: 400px;
+    background-image: url('/images/book-bg.jpg');
+    background-size: cover;
+}
+
+.header-wrapper {
+    background-color: rgba(0, 0, 0,0.5);
+    height: 100%;
+}
+
+.banner-header {
+    padding-top: 50px;
+    color: #fff;
+}

@@ -5,7 +5,12 @@ const API_KEY = '&key=AIzaSyC3vVfuQuQFalxDjkW23QkVYyV8Kg-2jEQ';
 
 
 export default {
-    search: function(query) {
-        return axios.get(BASEURL + query + API_KEY)
-    }
+  search: function (query) {
+    return axios.get(BASEURL + query + API_KEY)
+  },
+  // Saves a book to the database
+  saveBook: function (bookData) {
+    console.log(bookData);
+    return axios.post("/api/books", bookData);
+  }
 };
