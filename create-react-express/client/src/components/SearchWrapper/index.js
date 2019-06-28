@@ -24,6 +24,8 @@ class SearchWrapper extends React.Component {
         newBook.authors = newBook.authors.reduce((prev, cur, ind) => cur + prev, '');
         newBook.link = newBook.infoLink;
         newBook.image = newBook.imageLinks.thumbnail;
+        newBook.preview = newBook.previewLink;
+        console.log('preview', newBook.preview);
         API.saveBook(newBook);
     }
 
@@ -49,12 +51,6 @@ class SearchWrapper extends React.Component {
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}
                 />
-                {/* <SearchHeader />
-                <SearchForm
-                    search={this.state.search}
-                    handleFormSubmit={this.handleFormSubmit}
-                    handleInputChange={this.handleInputChange}
-                /> */}
                 <ResultsList
                     results={this.state.results}
                     handleSaveBook={this.handleSaveBook}

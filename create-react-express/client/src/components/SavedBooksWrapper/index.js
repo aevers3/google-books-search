@@ -1,11 +1,39 @@
 import React from 'react';
+import API from '../../utils/API';
+import Banner from '../Banner';
+import BooksList from '../BooksList';
 
-function SavedBooksWrapper() {
-    return (
-        <div>
-            Saved books render here.
-        </div>
-    )
+class SavedBooksWrapper extends React.Component {
+
+    state = {
+        books: []
+    };
+
+    componentDidMount() {
+        this.loadBooks();
+      }
+    
+      loadBooks = () => {
+        API.getBooks()
+          .then(res => {
+              console.log(res.data);
+              this.setState({ books: res.data})
+            })
+          .catch(err => console.log(err));
+      };
+
+    render() {
+        return (
+            <div>
+                <Banner 
+                    page='saved'
+                />
+                <BooksList 
+                    books={this.state.books}
+                />
+            </div>
+        )
+    }
 }
 
 export default SavedBooksWrapper;

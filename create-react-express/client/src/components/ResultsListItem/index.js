@@ -1,4 +1,5 @@
 import React from 'react';
+import BookImage from '../BookImage';
 
 function ResultListItem(props) {
     console.log('list item props',  props);
@@ -14,9 +15,10 @@ function ResultListItem(props) {
                 
                 {/* Image, description, etc. */}
                 <div className='row'>
-                    <img
-                        alt={result.volumeInfo.title}
-                        src={result.volumeInfo.imageLinks.thumbnail}
+                    <BookImage
+                        bookInfo={result.volumeInfo}
+                        // alt={result.volumeInfo.title}
+                        // src={result.volumeInfo.imageLinks.thumbnail}
                         className='col-sm-3'
                     />
                     <div className='col-sm-9'>

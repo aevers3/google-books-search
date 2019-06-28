@@ -5,7 +5,6 @@ import SearchWrapper from '../../components/SearchWrapper';
 function Search() {
     return (
         <>
-            {/* <Banner /> */}
             <SearchWrapper />
         </>
     )

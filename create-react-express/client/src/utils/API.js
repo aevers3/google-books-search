@@ -10,7 +10,12 @@ export default {
   },
   // Saves a book to the database
   saveBook: function (bookData) {
-    console.log(bookData);
+    console.log('bookData', bookData);
     return axios.post("/api/books", bookData);
+  },
+  // Get saved books from db
+  // Gets all books
+  getBooks: function () {
+    return axios.get("/api/books");
   }
 };
