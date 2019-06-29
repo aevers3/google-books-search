@@ -11,6 +11,7 @@ export default {
   // Saves a book to the database
   saveBook: function (bookData) {
     console.log('bookData', bookData);
+    // Prepend this post URL with reference to localhost:3001 to run locally
     return axios.post("/api/books", bookData);
   },
   // Get saved books from db
